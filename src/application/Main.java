@@ -15,7 +15,7 @@ public class Main extends Application {
 	public void start(Stage stage) {
 		try {
 			//Stage stage = new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("/Front_side/Main.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/frontEnd/Main.fxml"));
 			Scene scene = new Scene(root, Color.BLACK);
 			
 			stage.setTitle("P2P");
