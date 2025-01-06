@@ -17,15 +17,15 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
     <top>
-        <MenuBar>
+        <MenuBar prefHeight="27.0" prefWidth="1251.0">
             <menus>
                 <Menu text="Files">
-                    <MenuItem text="Connect" />
-                    <MenuItem text="Disconnect" />
-               <MenuItem text="Exit" />
+                    <MenuItem onAction="#connect" text="Connect" />
+                    <MenuItem onAction="#disconnect" text="Disconnect" />
+               <MenuItem onAction="#exit" text="Exit" />
                 </Menu>
                 <Menu text="Help">
-                    <MenuItem text="DeveloperInfo" />
+                    <MenuItem onAction="#showDeveloperInfo" text="DeveloperInfo" />
                 </Menu>
             </menus>
         </MenuBar>
@@ -66,11 +66,11 @@
             </HBox>
 
             <!-- Settings Section -->
-            <VBox spacing="10" style="-fx-border-color: gray; -fx-border-width: 1; -fx-padding: 10;" VBox.vgrow="ALWAYS">
+            <VBox prefHeight="256.0" prefWidth="1251.0" spacing="10" style="-fx-border-color: gray; -fx-border-width: 1; -fx-padding: 10;" VBox.vgrow="ALWAYS">
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Settings" />
 
-                <HBox alignment="CENTER" spacing="10">
-                    <VBox spacing="5">
+                <HBox alignment="CENTER" prefHeight="183.0" prefWidth="1229.0" spacing="10">
+                    <VBox prefHeight="120.0" prefWidth="248.0" spacing="5">
                        <CheckBox fx:id="newFilesOnly" onAction="#clickNewFilesOnly" text="Check new files only in the root" />
                         <Label text="Exclude files under these folders" />
                         <ListView fx:id="executedFiles" prefHeight="100" />
@@ -82,7 +82,7 @@
 
                     <VBox spacing="5">
                         <Label text="Exclude files matching these masks" />
-                        <ListView fx:id="matchingFiles" prefHeight="100" />
+                        <ListView fx:id="maskListView" prefHeight="100" />
                         <HBox spacing="5">
                             <Button onAction="#addExecutedFiles" text="Add" />
                             <Button onAction="#delExecutedFiles" text="Del" />
@@ -100,20 +100,20 @@
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor></Label>
-                <ListView fx:id="DownloadingFiles" prefHeight="100" />
+            <VBox fx:id="progressContainer" prefHeight="154.0" prefWidth="1251.0" VBox.vgrow="ALWAYS" />
             </VBox>
 
             <!-- Found Files Section -->
             <VBox spacing="5" VBox.vgrow="ALWAYS">
                 <Label text="Found files" />
-                <ListView fx:id="foundedFiles" prefHeight="100" />
+            <VBox prefHeight="151.0" prefWidth="1251.0" />
             </VBox>
          <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
             <children>
       
                   <!-- Search Button -->
                   <Button onAction="#search" text="Search" />
-               <TextField prefWidth="300" />
+               <TextField prefWidth="300" HBox.hgrow="NEVER" />
             </children>
          </HBox>
         </VBox>
